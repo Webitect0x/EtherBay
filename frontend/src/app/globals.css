@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  color: white;
+  /* background: linear-gradient(#01222f, #01263e); */
+  background-color: black;
+}
+
+::-webkit-scrollbar {
+  background-color: transparent; /* Set background color of the scrollbar track to transparent */
+}
+
+/* Optional: Hide scrollbar completely */
+::-webkit-scrollbar {
+  display: none; /* Hides the scrollbar completely */
+}
+
+[data-name="bg"] {
+  /* From https://css.glass */
+  color: rgba(12, 171, 206, 0.148);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7.1px);
+  -webkit-backdrop-filter: blur(7.1px);
+}
+
+[data-name="line"] {
+  color: hsl(200, 88%, 47%);
+  padding: 5px;
+}
+
+.menu-bar [data-name="bg"] {
+  color: rgba(12, 171, 206, 0.148);
+  box-shadow: 10px 4px 30px rgba(0, 0, 0, 0.992);
+}
+
+.screen-size {
+  height: 84vh;
+  width: 100%;
+}
+
+@media screen and (min-width: 1024px) {
+  .screen-size {
+    width: calc(100% - 16rem);
+  }
+}
