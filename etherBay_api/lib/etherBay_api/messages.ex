@@ -74,7 +74,7 @@ defmodule EtherBayApi.Messages do
   def get_chat_data(sender_id, receiver_id) do
     Message
     |> where(sender_id: ^sender_id, receiver_id: ^receiver_id)
-    |> Repo.all()
+    |> Repo.one()
   end
 
   @doc """

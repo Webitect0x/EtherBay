@@ -26,14 +26,14 @@ const NewChatPage = ({
     `http://localhost:4000/api/messages/${user?.data.id}`,
   );
 
-  console.log(data);
+  if (data) {
+    router.push(`/messages/chat/${data.data.channel_id}`);
+  }
 
   const sendMessage = () => {
     const newSessionId = crypto.randomUUID();
 
     const channel = joinChannel();
-
-    // use the url as the channel name and render it dynamically
 
     channel.push("new_msg", {
       message: {

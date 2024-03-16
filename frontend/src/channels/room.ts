@@ -1,4 +1,6 @@
-import { Channel } from "phoenix";
+"use client";
+
+import { useState } from "react";
 import { socket } from "../constants/constants";
 
 export const joinChannel = () => {
@@ -14,7 +16,8 @@ export const joinChannel = () => {
     });
 
   channel.on("new_msg", (resp) => {
-    console.log(resp);
+    // @ts-ignore
+    setMessages([...messages, resp]);
   });
 
   return channel;

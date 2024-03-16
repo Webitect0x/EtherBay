@@ -15,6 +15,12 @@ defmodule EtherBayApiWeb.MessageJSON do
     %{data: data(message)}
   end
 
+  def show_session_id(%{message: message}) do
+    %{
+      channel_id: message.channel_id
+    }
+  end
+
   def message_session_id(%{message: message}) do
     %{
       channel_id: message.channel_id

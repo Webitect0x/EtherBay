@@ -22,13 +22,12 @@ defmodule EtherBayApiWeb.MessageController do
   end
 
   def get_message_data(conn, %{"receiver_id" => receiver_id}) do
-    current_user = get_session(conn, :account_id)
-    dbg(current_user)
-    dbg(receiver_id)
-    chat_session = Messages.get_chat_data(current_user, receiver_id)
-    dbg(chat_session)
+    current_user_id = get_session(conn, :account_id)
 
-    render(conn, :message_session_id, message: chat_session)
+    chat_session = Messages.get_chat_data(current_user_id, receiver_id)
+
+    conn
+    |> render(:show, message: chat_session)
   end
 
   def show(conn, %{"id" => id}) do
